@@ -1,10 +1,3 @@
-# TODO
-- Errors (perhaps make it: "Did you run into this error? If so, click here")
-- Break this tutorial down into multiple parts
-    - Determining what's necesary
-    - Figuring out your main thing
-- Add instructions for what the students should actually do
-
 # Budiling Instagram!
 
 I have decided I want to build my own version of Instagram. This is literally how I did it.
