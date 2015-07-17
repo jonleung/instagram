@@ -78,4 +78,4 @@ Now I challenged myself to make it even simpler:
 
 We have our scooter. We'll call it "Add Image To Page"
 
-Next: [Iteration 1](iteration1.m)
+Next: [Iteration 1](iteration1.md)
