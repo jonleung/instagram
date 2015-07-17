@@ -1,6 +1,4 @@
-
-
-### Ask The User
+# User Input Implementation
 
 So now we need to ask the user to give us a URL to an existing image. So to figure out how to do that, we could google the following (where the top is the worst and the bottom is the best)
 
@@ -15,33 +13,33 @@ Using the same Googling procedure above of opening the first 3 tabs, from w3 sch
 
 I open the [Try it yourself](http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt)
 
-which seems to work. And then try to simplify the example by removing everything below the line `if (person != null) {` and adding an alert.
+which seems to work. And then try to simplify the example by 
+- removing everything below the line `if (person != null) {` and 
+- adding an alert.
+
+```js
+var person = prompt("Please enter your name", "Harry Potter");
+alert(person);
+```
 
 [![](http://i.imgur.com/9KuKZGN.png)](http://jsbin.com/jawaga/1/edit?js,output)
 
 #### Integrating the code:
 
-```html
-<!--index.html-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <script src="main.js"></script>
-</head>
-<body>
-  <input id="button" type="submit" name="button" value="enter"/>  
-</body>
-</html>
-```
-
 ```js
 // main.js
 
-document.getElementById('button').onclick = function() {
-   var photoUrl = prompt("Give us a URL of a photo you want to add to the stream!")
-   alert(photoUrl)
+window.onload = function() {
+
+  var button = document.getElementById('button');
+
+  var takePhoto = function() {
+    var photoUrl = prompt("Give us a URL of a photo you want to add to the stream!")
+    alert(photoUrl)
+  }
+  
+  button.onclick = takePhoto;
 };
 ```
+
+Next: [Adding an image based on the user's given URL](adding_image.md)
