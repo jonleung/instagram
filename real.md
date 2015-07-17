@@ -235,6 +235,27 @@ As always, I'll open the first 3 results in new tabs so I can have easy access t
 
 [The first result](https://s3.amazonaws.com/f.cl.ly/items/3l0p170n3129232f2T45/Image%202015-07-16%20at%207.10.48%20PM.png) is a Stack Overflow page.
 
+### Create A Base Project
+
+- Getting off the ground
+  - On the left file pane, right click and click `New Folder` to create a new
+    folder. Name it `instagram`
+- Make sure that live reload is running by opening a new terminal and typing `live_reload`
+- Create a new file inside of instagram called `index.html` and double click
+it to open it
+  - Go ahead and type the following code into the open file (don't copy and
+    paste it! and make sure to indent properly!).
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+      </head>
+      <body>
+      </body>
+    </html>
+    ```
+
 
 ### Understanding (this) Stack Overflow Page.
 Stack overflow is a great Q&A resource that almost every programmer I know uses. There is a particularly good way to read Q&A type sites like Stack Overflow
@@ -322,8 +343,129 @@ It still works : )
 
 [Here's a video](https://www.youtube.com/watch?v=HlVbolRGz4o) I put together for how I play with things to learn what it does.
 
-##### Step 6: Now I'll add it to my code:
+##### Step 6: Now I'll try to add it to my code:
 
+Warning: BELOW CODE DOES NOT WORK
 
+```html
+<!--index.html-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="main.js"></script>
+</head>
+<body>
+  <input id="button" type="submit" name="button" value="enter"/>  
+</body>
+</html>
+```
 
+```js
+// main.js
+
+document.getElementById('button').onclick = function() {
+   alert("button was clicked");
+};
+```
+
+##### Step 7: Debugging The Code
+
+The first thing you should do when something doesn't work when you're working with HTML & Javascript is to open the developer console. This is because any errors that occur will be shown in the developer console and if there were to be any errors, they would completely disable any of the javascript from functioning properly.
+
+![](https://s3.amazonaws.com/f.cl.ly/items/433z0g281v0V0E242j47/Image%202015-07-17%20at%204.22.28%20AM.png)
+
+From the above, we can see we have the error:
+
+> Uncaught TypeError: Cannot set property 'onclick' of null
+
+If we want to know exactly where the errors is in the code we can click to the right of the error:
+
+![](https://s3.amazonaws.com/f.cl.ly/items/3O2B37083s2f462v1Z0N/Image%202015-07-17%20at%204.24.40%20AM.png?t=1437132296160)
+
+Which takes us to this screen:
+
+![](https://s3.amazonaws.com/f.cl.ly/items/2d2F1V2D3S3t1d2X0I1q/Image%202015-07-17%20at%204.26.04%20AM.png)
+
+Now, I'm still not sure what that means, so the first thing I do is Google it:
+
+![](https://s3.amazonaws.com/f.cl.ly/items/231p3i1q271g1j2f2X0d/Image%202015-07-17%20at%204.27.45%20AM.png)
+
+And I open the first 3 pages in new tabs:
+
+Looking at the [first page](http://stackoverflow.com/questions/9778888/uncaught-typeerror-cannot-set-property-onclick-of-null)
+
+- the title "Uncaught TypeError: Cannot set property 'onclick' of null" is relevant
+- looking at the answers, this answer with 21 votes seems to be voted the highest and has the easiest to understand example:
+
+![](https://s3.amazonaws.com/f.cl.ly/items/0A3Z3k2Z3x0M2r402x42/Image%202015-07-17%20at%204.28.59%20AM.png)
+
+I think this means that I put my code where it says 
+`// your code`
+but I'm not sure so I'll keep looking
+
+Looking at the [next google result](http://stackoverflow.com/questions/17080502/uncaught-typeerror-cannot-set-property-onclick-of-null), the title is still relevant and it seems to answer my question:
+
+![](https://s3.amazonaws.com/f.cl.ly/items/0T003P1z1u2F041d0K3F/Image%202015-07-17%20at%204.31.43%20AM.png)
+
+At this point I could try to isolate this code to test it out but it seems simple enough but more importantly, critical that my original code be in here, so I will just update the `main.js` file to this:
+
+```js
+// main.js
+
+window.onload = function() {
+  document.getElementById('button').onclick = function() {
+     alert("button was clicked");
+  };
+};
+```
+
+and now it seems to work!
+
+### Ask The User
+
+So now we need to ask the user to give us a URL to an existing image. So to figure out how to do that, we could google the following (where the top is the worst and the bottom is the best)
+
+- "ask me for a link of an existing photo"
+- "ask user for link of existing photo"
+- "ask user for text"
+- "javascript ask user for text
+
+Using the same Googling procedure above of opening the first 3 tabs, from w3 schools we see
+
+![](https://s3.amazonaws.com/f.cl.ly/items/0J3T3j0I1V1E3i3N3h0k/Image%202015-07-17%20at%204.38.37%20AM.png)
+
+I open the [Try it yourself](http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt)
+
+which seems to work. And then try to simplify the example by removing everything below the line `if (person != null) {` and adding an alert.
+
+[![](http://i.imgur.com/9KuKZGN.png)](http://jsbin.com/jawaga/1/edit?js,output)
+
+#### Integrating the code:
+
+```html
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="main.js"></script>
+</head>
+<body>
+  <input id="button" type="submit" name="button" value="enter"/>  
+</body>
+</html>
+```
+
+```js
+// main.js
+
+document.getElementById('button').onclick = function() {
+   var photoUrl = prompt("Give us a URL of a photo you want to add to the stream!")
+   alert(photoUrl)
+};
+```
