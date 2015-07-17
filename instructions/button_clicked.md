@@ -223,13 +223,13 @@ In this particular case, we are saying
 - Then when we click on it
   - Make an alert
 
-Note that the code from above can also be rewritten as:
+Note that the code from above can also be rewritten as. To me personally, the below is clearer than the above.
 
 ```js
 // main.js
 
 window.onload = function() {
-
+  
   // get some element
   var button = document.getElementById('button');
 
@@ -243,7 +243,7 @@ window.onload = function() {
 };
 ```
 
-Which can also be rewritten as this:
+Also just as a note, you can also write it this way below:
 
 ```js
 // main.js
