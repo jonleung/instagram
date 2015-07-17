@@ -98,3 +98,5 @@ window.onload = function() {
 ```
 
 [![](http://i.imgur.com/9KuKZGN.png)](http://jsbin.com/mekila/edit?html,js)
+
+Next: [A super hard probably too difficult challenge that is not too well written up yet](possible.md)
